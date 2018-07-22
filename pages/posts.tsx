@@ -1,7 +1,8 @@
 import React from 'react';
 import { Provider } from 'mobx-react';
+import { getPosts } from '../src/utils/fetcher';
 import { rehydrateStore, initStore } from "../src/models/rehydrateStore";
-import Page from '../src/components/Page'
+import Posts from '../src/components/posts'
 
 interface Props {
   initialState: any,
@@ -12,7 +13,9 @@ export default class PostsPage extends React.Component<Props> {
   store: any;
 
   static async getInitialProps ({ req }) {
-    return await initStore(!!req);
+    const isServer = !!req;
+    const posts = await getPosts();
+    return await initStore(isServer, { posts });
   }
 
   constructor (props) {
@@ -23,7 +26,7 @@ export default class PostsPage extends React.Component<Props> {
   render () {
     return (
       <Provider store={this.store}>
-        <Page title='Index Page' linkTo='/' />
+        <Posts title='Posts' linkTo='/' />
       </Provider>
     )
   }

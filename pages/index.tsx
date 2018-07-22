@@ -1,9 +1,8 @@
 import React from 'react';
 import { Provider } from 'mobx-react'
-import { applySnapshot } from 'mobx-state-tree'
-import { alStore } from '../src/models/store'
 import { rehydrateStore, initStore } from "../src/models/rehydrateStore";
-import Albums from '../src/components/albums'
+import { getAlbums } from '../src/utils/fetcher';
+import Albums from '../src/components/albums';
 
 interface Props {
   initialState: any,
@@ -14,7 +13,9 @@ export default class PostsPage extends React.Component<Props> {
   store: any;
 
   static async getInitialProps ({ req }) {
-    return await initStore(!!req);
+    const isServer = !!req;
+    const albums = await getAlbums();
+    return await initStore(isServer, { albums });
   }
 
   constructor (props) {
@@ -25,7 +26,7 @@ export default class PostsPage extends React.Component<Props> {
   render () {
     return (
       <Provider store={this.store}>
-        <Albums title='Index Page' linkTo='/posts' />
+        <Albums title='Albums Page' linkTo='/posts' />
       </Provider>
     )
   }

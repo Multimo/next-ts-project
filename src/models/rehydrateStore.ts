@@ -1,5 +1,5 @@
 import { applySnapshot, getSnapshot } from 'mobx-state-tree';
-import { alStore, albumStore, getAlbums, getPosts } from "./store";
+import { alStore, albumStore } from "./store";
 
 
 export const rehydrateStore = (initialState?: any) => {
@@ -7,19 +7,20 @@ export const rehydrateStore = (initialState?: any) => {
   return alStore;
 };
 
+interface InitialState {
+  initialState: any;
+}
 
 let store = null;
-export const initStore = async (isServer: boolean) => {
+export const initStore = async (isServer: boolean, response: any,): Promise<InitialState | any> => {
   if (!isServer && alStore.albums.length && alStore.posts.length) {
     return albumStore;
   }
-  const albums = await getAlbums();
-  const posts = await getPosts();
-  store = albumStore.create({
-    albums,
-    posts,
-  });
+
+  store = albumStore.create(response);
+  
   return {
-    initialState: getSnapshot(store)
+    initialState: getSnapshot(store),
+    store: store,
   };
 };

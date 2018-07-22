@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { observer, inject } from 'mobx-react'
+import { AlbumView } from './albumsView';
 
 interface Props {
   store?: {
@@ -23,11 +24,11 @@ class Albums extends React.Component<Props> {
         </nav>
         <h1 onClick={store.toggler}>{store.toggle ? 'yay' : 'naha'}</h1>
         <hr/>
-        <ul>
-          {store && store.albums && store.albums.map(album => 
-            <li key={album.id} >{album.title}</li>
+        <section className="cf w-100 pa2-ns">
+          {store && store.albums && store.albums.slice(0, 8).map(album => 
+            <AlbumView album={album} />
           )}
-         </ul> 
+        </section>
       </div>
     )
   }
