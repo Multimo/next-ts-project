@@ -13,7 +13,8 @@ interface InitialState {
 
 let store = null;
 export const initStore = async (isServer: boolean, response: any,): Promise<InitialState | any> => {
-  if (!isServer && alStore.albums.length && alStore.posts.length) {
+  if (!isServer) {
+    applySnapshot(alStore, response)
     return albumStore;
   }
 

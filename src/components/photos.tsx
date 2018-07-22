@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link'
 import { observer, inject } from 'mobx-react';
-import { PostView } from './postView';
 
 interface Props {
   albumId: string,
@@ -17,16 +16,16 @@ class Photos extends React.Component<Props> {
       <div>
          <Link href="/"><a>go back</a></Link>
         <h1 onClick={store.toggler}>{store.toggle ? 'yay' : 'naha'}</h1>
-        <ul className="list pl0 mt0 measure center">
-        {album.photos.map(photo => (
-          <li
-            className="flex items-center lh-copy pa3 ph0-l bb b--black-10"
-            key={photo.id}
-          >
-            {JSON.stringify(photo)}
-          </li>
+        <div className="fl w-100">
+        {album.photos.map(image => (
+           <div className="fl w-25">
+             <a className="db aspect-ratio aspect-ratio--1x1 dim">
+              <img src={image.url} />
+              <span role="img" className="bg-center cover aspect-ratio--object"></span>
+             </a>
+           </div>
         ))}
-        </ul>
+        </div>
       </div>
     )
   }

@@ -43,7 +43,7 @@ and the commmunity behind it is massive.
 Todo:
 
 [] - login entry page => ? firebase login system ?
-[] - individual post with comments and photos
+[x] - individual post with comments and photos
 [] - sorting / filter on the posts / albums / Photos by user /alphabetically
 [] - add css / make things look nice
 [] - server LSU caching

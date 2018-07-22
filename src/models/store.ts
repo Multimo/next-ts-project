@@ -1,5 +1,4 @@
 import { types } from 'mobx-state-tree';
-import { getAlbums, getPosts } from '../utils/fetcher';
 
 const Photo = types.model('Photo' , {
   albumId: types.number,
@@ -41,10 +40,6 @@ export const albumStore = types
     toggler() {
       self.toggle = !self.toggle;
     },
-    // afterCreate: async () => {
-    //   await getAlbums();
-    //   await getPosts();
-    // },
   }))
   .views(self => ({
     getPost(postId: number) {
