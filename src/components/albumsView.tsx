@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const AlbumView = ({ album }: Props) => (
-  <article key={album.id} className="fl w-100 w-50-m w-25-ns pa2-ns link">
+  <article className="fl w-100 w-50-m w-25-ns pa2-ns link">
       <Fragment>
         <div className="aspect-ratio aspect-ratio--1x1">
           <img 

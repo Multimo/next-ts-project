@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Provider } from 'mobx-react';
 import { getPosts } from '../src/utils/fetcher';
 import { rehydrateStore, initStore } from "../src/models/rehydrateStore";
 import Posts from '../src/components/posts'
+import { Header } from '../src/components/header';
 
 interface Props {
   initialState: any,
@@ -26,7 +27,10 @@ export default class PostsPage extends React.Component<Props> {
   render () {
     return (
       <Provider store={this.store}>
-        <Posts title='Posts' linkTo='/' />
+        <Fragment>
+          <Header title="Posts" linkPath="/" linkText="Albums" />
+          <Posts />
+        </Fragment>
       </Provider>
     )
   }

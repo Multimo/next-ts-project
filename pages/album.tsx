@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Provider } from 'mobx-react';
 import { rehydrateStore, initStore } from "../src/models/rehydrateStore";
 import Photos from '../src/components/photos'
 import { getAlbumPhotos, getAlbumById } from '../src/utils/fetcher';
+import { Goback } from '../src/components/goback';
 
 interface Props {
   initialState: any,
   isServer: boolean,
-  albumId: number,
+  albumId: string,
 }
 
-export default class PostPage extends React.Component<Props> {
+export default class AlbumPage extends React.Component<Props> {
   store: any;
 
   static async getInitialProps ({ req, query }) {
@@ -34,7 +35,10 @@ export default class PostPage extends React.Component<Props> {
     const { albumId } = this.props;
     return (
       <Provider store={this.store}>
+      <Fragment>
+        <Goback text="Go back to all Albums" linkPath="/" />
         <Photos albumId={albumId} />
+      </Fragment>
       </Provider>
     )
   }

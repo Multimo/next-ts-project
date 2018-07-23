@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Provider } from 'mobx-react';
 import { rehydrateStore, initStore } from "../src/models/rehydrateStore";
 import Comments from '../src/components/comments'
 import { getPostComments, getPostById } from '../src/utils/fetcher';
+import { Goback } from '../src/components/goback';
 
 interface Props {
   initialState: any,
   isServer: boolean,
-  postId: number,
+  postId: string,
 }
 
 export default class PostPage extends React.Component<Props> {
@@ -34,7 +35,10 @@ export default class PostPage extends React.Component<Props> {
     const { postId } = this.props;
     return (
       <Provider store={this.store}>
-        <Comments postId={postId} />
+        <Fragment>
+          <Goback text="Go back to All Posts" linkPath="/posts" />
+          <Comments postId={postId} />
+        </Fragment>
       </Provider>
     )
   }

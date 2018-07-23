@@ -24,7 +24,7 @@ export const PostView = ({ post }: Props) => (
         </div>
         <div className="w-100 w-60-ns pl3-ns">
           <h1 className="f3 fw1 baskerville mt0 lh-title">{post.title}</h1>
-          <p className="f6 lh-copy mv0">{post.userId}</p>
+          <p className="f6 lh-copy mv0">by user:{post.userId}</p>
         </div>
       </div>
     </Link>

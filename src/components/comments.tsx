@@ -15,9 +15,9 @@ class Comments extends React.Component<Props> {
     const post = store.getPost(parseInt(postId));
     return (
       <div>
-        <Link href="/posts"><a>go back</a></Link>
-        <h1 onClick={store.toggler}>{store.toggle ? 'yay' : 'naha'}</h1>
-        <PostView post={post} />
+        <div className="center mw7">
+          <PostView post={post} />
+        </div>
         <ul className="list pl0 mt0 measure center">
           {post.comments.map(comment => (
             <li

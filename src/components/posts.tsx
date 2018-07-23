@@ -4,33 +4,30 @@ import { observer, inject } from 'mobx-react';
 import { PostView } from './postView';
 
 interface Props {
-  store?: {
-    posts?: any[];
+  store: {
+    posts: any[];
   };
-  title: string;
-  linkTo: string;
 }
 
 class Posts extends React.Component<Props> {
+  state = { showAll: false };
+
+  handleShowAll = () => {
+    this.setState({ showAll: true });
+  }
 
   render () {
     const { store } = this.props;
-
+    const { showAll } = this.props;
+    
+    const posts = showAll ? store.posts : store.posts.slice(0, 5);
+    console.log(posts)
     return (
       <div>
-        <h1>{this.props.title}</h1>
-        <nav>
-          <Link href={this.props.linkTo}><a>Navigate</a></Link>
-        </nav>
-        <h1 onClick={store.toggler}>{store.toggle ? 'yay' : 'naha'}</h1>
-           <h2 className="baskerville fw1 ph3 ph0-l">Posts</h2>
-          <hr/>
         <section className="mw7 center avenir">
-          {store && store.posts && store.posts.slice(0,5).map(post => 
-            <PostView post={post} />
-          )}
-      </section>
-        
+          {posts.map(post => <PostView key={post.id} post={post} />)}
+        </section>
+        <button onClick={() => this.handleShowAll()}>Show All</button>
       </div>
     )
   }

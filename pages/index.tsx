@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Provider } from 'mobx-react'
 import { rehydrateStore, initStore } from "../src/models/rehydrateStore";
 import { getAlbums } from '../src/utils/fetcher';
 import Albums from '../src/components/albums';
+import { Header } from '../src/components/header';
 
 interface Props {
   initialState: any,
   isServer: boolean,
 }
 
-export default class PostsPage extends React.Component<Props> {
+export default class AlbumsPage extends React.Component<Props> {
   store: any;
 
   static async getInitialProps ({ req }) {
@@ -26,7 +27,10 @@ export default class PostsPage extends React.Component<Props> {
   render () {
     return (
       <Provider store={this.store}>
-        <Albums title='Albums Page' linkTo='/posts' />
+        <Fragment>
+          <Header title="Albums" linkPath="/posts" linkText="Posts" />
+          <Albums />
+        </Fragment>
       </Provider>
     )
   }

@@ -13,10 +13,7 @@ class Photos extends React.Component<Props> {
     const { store, albumId } = this.props;
     const album = store.getAlbum(parseInt(albumId));
     return (
-      <div>
-         <Link href="/"><a>go back</a></Link>
-        <h1 onClick={store.toggler}>{store.toggle ? 'yay' : 'naha'}</h1>
-        <div className="fl w-100">
+      <div className="fl w-100">
         {album.photos.map(image => (
            <div className="fl w-25">
              <a className="db aspect-ratio aspect-ratio--1x1 dim">
@@ -26,7 +23,6 @@ class Photos extends React.Component<Props> {
            </div>
         ))}
         </div>
-      </div>
     )
   }
 }
