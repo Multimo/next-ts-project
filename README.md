@@ -45,7 +45,7 @@ Todo:
 [] - login entry page => ? firebase login system ?
 [x] - individual post with comments and photos
 [] - sorting / filter on the posts / albums / Photos by user /alphabetically
-[] - add css / make things look nice
+[x] - add css / make things look nice
 [] - server LSU caching
 [] - unit tests
 [] - PWA

@@ -22,7 +22,7 @@ export const PostView = ({ post }: Props) => (
             alt="Photo of a dimly lit room with a computer interface terminal." 
           />
         </div>
-        <div className="w-100 w-60-ns pl3-ns">
+        <div className="w-100 w-60-ns pl3-ns flex flex-column justify-center pointer">
           <h1 className="f3 fw1 baskerville mt0 lh-title">{post.title}</h1>
           <p className="f6 lh-copy mv0">by user:{post.userId}</p>
         </div>
