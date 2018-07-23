@@ -40,8 +40,9 @@ class Posts extends React.Component<Props> {
 
     return (
       <section className="mw7 center avenir">
-
+        <label htmlFor="posts-filter">Viewing All Posts By </label>
         <select 
+          id="posts-filter"
           className="mb2"
           onChange={e => this.handleFilterChange(e)}
         >

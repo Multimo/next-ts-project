@@ -11,13 +11,13 @@ interface Props {
 }
 
 export const AlbumView = ({ album }: Props) => (
-  <article className="fl w-100 w-50-m w-25-ns pa2-ns link">
+  <article className="mw-20 w-100 w-50-m w-25-ns pa2-ns link">
       <Fragment>
         <div className="aspect-ratio aspect-ratio--1x1">
           <img 
-            src="https://picsum.photos/500/500/?random" 
-            width={500}
-            height={500}
+            src="https://picsum.photos/300/200/?random" 
+            width={300}
+            height={200}
             className="db bg-center cover aspect-ratio--object " 
           />
         </div>

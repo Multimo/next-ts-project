@@ -1,5 +1,12 @@
 # next-ts-project
-Small App built using Typescript, Next js &amp; Mobx State Tree
+Small Web App built using Typescript, Next js &amp; Mobx State Tree.
+
+This app is using server side rendering for a faster Initial render and also better theoretical SEO.
+
+It also has code spliting so we send the minimal amount of JS per route.
+
+Note all these images are just random and none of this part has been optimised.
+
 
 ## Commands
 
@@ -47,6 +54,7 @@ and the commmunity behind it is massive.
 
 Todo:
 
+```
 [] - login entry page => ? firebase login system ?
 [x] - individual post with comments and photos
 [] - sorting / filter on the posts / albums / Photos by user /alphabetically
@@ -56,3 +64,4 @@ Todo:
 [] - unit tests
 [] - PWA?
 [] - deploy with Now
+```

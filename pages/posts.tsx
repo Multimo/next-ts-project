@@ -16,10 +16,16 @@ export default class PostsPage extends React.Component<Props> {
   static async getInitialProps ({ req }) {
     const isServer = !!req;
     const posts = await getPosts();
-    return await initStore(isServer, { posts });
+    
+    // hack to normalise server responses.
+    // sometime the service will return posts with just an id
+    // which fails MST validation and crashes the page..
+    return await initStore(isServer, { 
+      posts: posts.filter((post: any) => !!post.userId), 
+    });
   }
 
-  constructor (props) {
+  constructor (props: Readonly<Props>) {
     super(props)
     this.store = rehydrateStore(this.props.initialState);
   }
