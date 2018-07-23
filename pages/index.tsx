@@ -19,7 +19,7 @@ export default class AlbumsPage extends React.Component<Props> {
     return await initStore(isServer, { albums });
   }
 
-  constructor (props) {
+  constructor (props: Readonly<Props>) {
     super(props)
     this.store = rehydrateStore(this.props.initialState);
   }

@@ -36,7 +36,7 @@ export default class PostPage extends React.Component<Props> {
     return (
       <Provider store={this.store}>
         <Fragment>
-          <Goback text="Go back to All Posts" linkPath="/posts" />
+          <Goback text="Go back to all Posts" linkPath="/posts" />
           <Comments postId={postId} />
         </Fragment>
       </Provider>
