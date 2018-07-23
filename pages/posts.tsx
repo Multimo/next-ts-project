@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Provider } from 'mobx-react';
 import { getPosts } from '../src/utils/fetcher';
-import { rehydrateStore, initStore } from "../src/models/rehydrateStore";
+import { rehydrateStore, initStore } from "../src/utils/rehydrateStore";
 import Posts from '../src/components/posts'
 import { Header } from '../src/components/header';
 

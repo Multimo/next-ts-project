@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link'
 import { observer, inject } from 'mobx-react';
 
 interface Props {

@@ -5,13 +5,13 @@
   "main": "server.js",
   "scripts": {
     "dev": "next",
+    "test": "jest",
     "build": "next build",
     "start": "next start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@zeit/next-typescript": "^1.1.0",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
     "mobx-state-tree": "^3.0.0",
@@ -19,9 +19,30 @@
     "node-fetch": "^2.1.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "ts-jest": "^23.0.1",
     "typescript": "^2.9.2"
   },
   "devDependencies": {
-    "@types/next": "^6.0.4"
+    "@types/jest": "^23.3.0",
+    "@types/next": "^6.0.4",
+    "@zeit/next-typescript": "^1.1.0",
+    "jest-cli": "^23.4.1"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "mapCoverage": true,
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ],
+    "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }

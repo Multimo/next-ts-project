@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initStore: should return store if initial state is falsy 1`] = `
+Object {
+  "albums": Array [],
+  "posts": Array [],
+  "toggle": false,
+}
+`;
+
+exports[`initStore: should return store if initial state is falsy 2`] = `
+Object {
+  "albums": Array [],
+  "posts": Array [
+    Object {
+      "body": "body of the post goes here",
+      "comments": Array [],
+      "id": 123,
+      "title": "ttile",
+      "userId": 123,
+    },
+  ],
+  "toggle": false,
+}
+`;
+
+exports[`rehydrateStore tests rehydrateStore: should return store if initial state is falsy 1`] = `
+Object {
+  "albums": Array [],
+  "posts": Array [],
+  "toggle": false,
+}
+`;
+
+exports[`rehydrateStore tests rehydrateStore: should return store if initial state is falsy 2`] = `
+Object {
+  "albums": Array [],
+  "posts": Array [
+    Object {
+      "body": "body of the post goes here",
+      "comments": Array [],
+      "id": 123,
+      "title": "ttile",
+      "userId": 123,
+    },
+  ],
+  "toggle": false,
+}
+`;

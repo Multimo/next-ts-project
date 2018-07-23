@@ -7,6 +7,7 @@ interface Post {
   userId: string,
   title: string,
   body: string,
+  comments: any[],
 }
 
 interface Props {
@@ -39,7 +40,7 @@ class Posts extends React.Component<Props> {
 
     return (
       <section className="mw7 center avenir">
-      
+
         <select 
           className="mb2"
           onChange={e => this.handleFilterChange(e)}

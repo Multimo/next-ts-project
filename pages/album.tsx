@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Provider } from 'mobx-react';
-import { rehydrateStore, initStore } from "../src/models/rehydrateStore";
+import { rehydrateStore, initStore } from "../src/utils/rehydrateStore";
 import Photos from '../src/components/photos'
 import { getAlbumPhotos, getAlbumById } from '../src/utils/fetcher';
 import { Goback } from '../src/components/goback';

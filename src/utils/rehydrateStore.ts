@@ -1,5 +1,5 @@
 import { applySnapshot, getSnapshot } from 'mobx-state-tree';
-import { alStore, albumStore } from "./store";
+import { alStore, albumStore } from "../models/store";
 
 
 export const rehydrateStore = (initialState?: any) => {
@@ -12,7 +12,7 @@ interface InitialState {
 }
 
 let store = null;
-export const initStore = async (isServer: boolean, response: any,): Promise<InitialState | any> => {
+export const initStore = (isServer: boolean, response: any,): InitialState | any => {
   if (!isServer) {
     applySnapshot(alStore, response)
     return albumStore;
@@ -22,6 +22,5 @@ export const initStore = async (isServer: boolean, response: any,): Promise<Init
   
   return {
     initialState: getSnapshot(store),
-    store: store,
   };
 };
