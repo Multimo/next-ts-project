@@ -51,17 +51,24 @@ Static typing in any project is the way to go nowadays. Its got a load of useful
 
 and the commmunity behind it is massive.
 
+### Tachyons
 
-Todo:
+Very small functional css design system using `atomic css`. Bacially means its one style per class.
+
+Makes everything very simple and functional. If i had more time I would show how to parse the html and only return the used classes.
+
+On its own its very small and comes with helpful reciepes which I used here. 
+
+#### Todo:
 
 ```
 [] - login entry page => ? firebase login system ?
 [x] - individual post with comments and photos
-[] - sorting / filter on the posts / albums / Photos by user /alphabetically
+[x] - sorting / filter on the posts / albums / Photos by user /alphabetically
 [x] - add css / make things look nice
+[x] - unit tests
 [] - server LSU caching
 [] - add text compression
-[] - unit tests
 [] - PWA?
 [] - deploy with Now
 ```
