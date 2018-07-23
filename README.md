@@ -8,6 +8,11 @@ To run as in development mode
 npm run dev
 ```
 
+To run tests
+```
+npm run test
+```
+
 To build
 ```
 npm run build
