@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { observer, inject } from 'mobx-react';
 import { PostView } from './postView';
 
@@ -19,16 +18,17 @@ class Posts extends React.Component<Props> {
   render () {
     const { store } = this.props;
     const { showAll } = this.props;
-    
-    const posts = showAll ? store.posts : store.posts.slice(0, 5);
+    const allUserIds = store.getAllPostUserIds();
+    const posts = store.getPostByUserId(parseInt(allUserIds[0]));
+    debugger;
     console.log(posts)
     return (
-      <div>
-        <section className="mw7 center avenir">
-          {posts.map(post => <PostView key={post.id} post={post} />)}
-        </section>
-        <button onClick={() => this.handleShowAll()}>Show All</button>
-      </div>
+      <section className="mw7 center avenir">
+        <p>filtered by userid:{allUserIds[0]}</p>
+        {posts.map(post => 
+          <PostView key={post.id} post={post} />
+        )}
+      </section>
     )
   }
 }

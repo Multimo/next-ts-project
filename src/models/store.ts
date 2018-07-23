@@ -40,6 +40,18 @@ export const albumStore = types
     toggler() {
       self.toggle = !self.toggle;
     },
+    getPostByUserId(id: number) {
+      return self.posts.filter(({ userId }) => userId === id);
+    },
+    getAllPostUserIds() {
+      return self.posts
+        .map(({ userId }) => userId)
+        .filter((userId, pos, array) => {
+          const indexOf = array.indexOf(userId)
+          debugger;
+          return indexOf === pos
+        });
+    },
   }))
   .views(self => ({
     getPost(postId: number) {
