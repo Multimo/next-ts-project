@@ -47,6 +47,7 @@ Todo:
 [] - sorting / filter on the posts / albums / Photos by user /alphabetically
 [x] - add css / make things look nice
 [] - server LSU caching
+[] - add text compression
 [] - unit tests
-[] - PWA
+[] - PWA?
 [] - deploy with Now

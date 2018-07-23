@@ -27,6 +27,7 @@ const Post = types.model('Post' ,{
   id: types.number,
   userId: types.number,
   title: types.string,
+  body: types.string,
   comments: types.optional(types.array(Comments), []), 
 })
 
@@ -48,7 +49,6 @@ export const albumStore = types
         .map(({ userId }) => userId)
         .filter((userId, pos, array) => {
           const indexOf = array.indexOf(userId)
-          debugger;
           return indexOf === pos
         });
     },
