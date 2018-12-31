@@ -22,7 +22,7 @@ class Posts extends React.Component<Props> {
   state = { 
     showAll: false,
     selectedFilter: '1',
-  };;
+  };
 
   handleShowAll = () => {
     this.setState({ showAll: true });
